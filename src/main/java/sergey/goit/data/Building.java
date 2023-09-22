@@ -1,0 +1,25 @@
+package sergey.goit.data;
+
+import jakarta.persistence.*;
+
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Getter
+@Setter
+@Entity
+@Table(name = "buildings")
+public class Building {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(name = "address", nullable = false, length = 100)
+    private String address;
+
+    @OneToMany(mappedBy = "building", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<BuildingForApartament> buildingForApartament = new ArrayList<>();
+}
