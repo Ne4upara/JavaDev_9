@@ -10,8 +10,13 @@ import lombok.Setter;
 @Getter
 @Table(name = "building_for_apartament")
 public class BuildingForApartament {
+    @Deprecated
+    private BuildingForApartament() {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private long id;
 
     @ManyToOne(fetch = FetchType.EAGER)

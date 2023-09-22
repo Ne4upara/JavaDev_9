@@ -9,8 +9,13 @@ import lombok.Setter;
 @Entity
 @Table(name = "role")
 public class Role {
+    @Deprecated
+    private Role() {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private long id;
 
     @ManyToOne

@@ -13,8 +13,14 @@ import java.util.List;
 @Entity
 @Table(name = "buildings")
 public class Building {
+
+    @Deprecated
+    private Building() {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private long id;
 
     @Column(name = "address", nullable = false, length = 100)

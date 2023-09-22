@@ -9,9 +9,13 @@ import lombok.Setter;
 @Entity
 @Table(name = "resident")
 public class Resident {
+    @Deprecated
+    private Resident() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private long id;
 
     @Column(name = "entry_for_ap", nullable = false)
